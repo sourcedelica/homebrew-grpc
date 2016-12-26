@@ -27,7 +27,7 @@ class Grpc < Formula
     # TODO(mxyan): find a better solution
     system "[ \"$(ls -A third_party/nanopb)\" ] || git clone --branch=nanopb-0.3.5 https://github.com/nanopb/nanopb.git third_party/nanopb"
 
-    system "make", "install", "prefix=#{prefix}"
+    system "make", "V=1", "install", "prefix=#{prefix}"
 
     if build.with? "plugins"
       system "make", "install-plugins", "prefix=#{prefix}"
